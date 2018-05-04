@@ -30,9 +30,9 @@ class Post(models.Model):
     excerpt = models.CharField(max_length=200, blank=True)
 
     # 一个分类下有多篇文章
-    category = models.ForeignKey(Category)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     # 一篇文章有多个标签,一个标签下也可能有多篇文章
     tags = models.ManyToManyField(Tag, blank=True)
 
     # 文章作者
-    author = models.ForeignKey(User)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
